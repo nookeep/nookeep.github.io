@@ -1,0 +1,336 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light">
+  <meta name="description" content="NooKeep 개인정보처리방침. 사진과 기록의 처리, 앱 권한, 보관 및 삭제 방법을 안내합니다.">
+  <title>개인정보처리방침 — NooKeep</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --paper: #fff;
+      --ink: #55514a;
+      --muted: #716d67;
+      --line: #e8e6e2;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      background: var(--paper);
+      color: var(--ink);
+      font: 16px/1.75 system-ui, -apple-system, "Apple SD Gothic Neo",
+        "Malgun Gothic", sans-serif;
+      word-break: keep-all;
+    }
+    a { color: inherit; text-underline-offset: .22em; }
+    a:focus-visible { outline: 2px solid var(--ink); outline-offset: 4px; }
+    .skip-link {
+      position: absolute;
+      top: -80px;
+      left: 24px;
+      z-index: 10;
+      padding: 8px 12px;
+      background: var(--ink);
+      color: var(--paper);
+    }
+    .skip-link:focus { top: 12px; }
+    .wrap { width: min(100% - 48px, 1040px); margin-inline: auto; }
+
+    .site-header {
+      height: 82px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid var(--line);
+    }
+    .brand {
+      font-family: Georgia, "Noto Serif KR", "Batang", serif;
+      font-size: 25px;
+      font-weight: 700;
+      line-height: 1;
+      letter-spacing: -.07em;
+      text-decoration: none;
+    }
+    .brand-mark {
+      display: inline-block;
+      width: 5px;
+      height: 5px;
+      margin: 0 0 2px 5px;
+      border-radius: 50%;
+      background: var(--ink);
+    }
+    .tagline {
+      color: var(--muted);
+      font-size: 10px;
+      font-weight: 650;
+      letter-spacing: .16em;
+    }
+
+    .hero { padding: 72px 0 56px; }
+    .eyebrow {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin: 0 0 24px;
+      color: var(--muted);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: .18em;
+    }
+    .eyebrow::before {
+      content: "";
+      width: 24px;
+      height: 1px;
+      background: currentColor;
+    }
+    h1 {
+      margin: 0;
+      font-family: "Noto Serif KR", "AppleMyungjo", "Batang", Georgia, serif;
+      font-size: clamp(32px, 4.4vw, 54px);
+      font-weight: 500;
+      line-height: 1.26;
+      letter-spacing: -.075em;
+    }
+    .intro {
+      margin: 27px 0 0;
+      font-size: 18px;
+      line-height: 1.8;
+      letter-spacing: -.02em;
+    }
+    .meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px 35px;
+      margin: 43px 0 0;
+      padding: 17px 0 0;
+      border-top: 1px solid var(--line);
+      font-size: 13px;
+      color: var(--muted);
+    }
+    .meta div { display: flex; gap: 12px; }
+    .meta dt { font-weight: 700; }
+    .meta dd { margin: 0; }
+
+    .body-grid {
+      display: grid;
+      grid-template-columns: 192px minmax(0, 1fr);
+      gap: 32px;
+      padding: 0 0 112px;
+      border-top: 1px solid var(--ink);
+    }
+    .toc {
+      align-self: start;
+      position: sticky;
+      top: 32px;
+      padding-top: 37px;
+    }
+    .toc-title {
+      margin: 0 0 18px;
+      color: var(--muted);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: .16em;
+    }
+    .toc ol { margin: 0; padding: 0; list-style: none; }
+    .toc li + li { margin-top: 11px; }
+    .toc a {
+      display: flex;
+      gap: 13px;
+      align-items: baseline;
+      font-size: 13px;
+      text-decoration: none;
+    }
+    .toc a:hover { text-decoration: underline; }
+    .toc span {
+      color: var(--muted);
+      font-size: 11px;
+      font-variant-numeric: tabular-nums;
+    }
+
+    .policy-section {
+      display: grid;
+      grid-template-columns: 28px minmax(0, 1fr);
+      gap: 10px;
+      padding: 39px 0 44px;
+      border-bottom: 1px solid var(--line);
+      scroll-margin-top: 20px;
+    }
+    .number {
+      padding-top: 5px;
+      color: var(--muted);
+      font-size: 12px;
+      font-variant-numeric: tabular-nums;
+    }
+    h2 {
+      margin: 0 0 18px;
+      font-size: 21px;
+      font-weight: 650;
+      line-height: 1.4;
+      letter-spacing: -.045em;
+    }
+    .policy-section p {
+      margin: 0;
+      text-align: justify;
+      text-justify: inter-character;
+      text-wrap: pretty;
+      word-break: normal;
+    }
+    .policy-section p + p { margin-top: 13px; }
+    .policy-section a { text-decoration-thickness: 1px; }
+    .detail-list { margin: 0; }
+    .detail-list div {
+      display: grid;
+      grid-template-columns: 128px minmax(0, 1fr);
+      gap: 15px;
+      padding: 11px 0;
+    }
+    .detail-list div + div { border-top: 1px solid var(--line); }
+    .detail-list dt { font-weight: 650; }
+    .detail-list dd { margin: 0; }
+    .site-footer {
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      padding: 29px 0 45px;
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+      font-size: 12px;
+    }
+    .site-footer a { text-decoration: none; }
+    .site-footer a:hover { text-decoration: underline; }
+
+    @media (max-width: 700px) {
+      .wrap { width: min(100% - 40px, 1040px); }
+      .site-header { height: 68px; }
+      .brand { font-size: 23px; }
+      .tagline { font-size: 9px; letter-spacing: .08em; }
+      .hero { padding: 56px 0 48px; }
+      .intro { font-size: 16px; }
+      .meta { margin-top: 32px; }
+      .body-grid { display: block; padding-bottom: 70px; }
+      .toc {
+        position: static;
+        padding: 29px 0 27px;
+        border-bottom: 1px solid var(--line);
+      }
+      .toc ol { display: grid; grid-template-columns: 1fr 1fr; gap: 10px 16px; }
+      .toc li + li { margin: 0; }
+      .policy-section {
+        grid-template-columns: 29px minmax(0, 1fr);
+        gap: 12px;
+        padding: 33px 0 38px;
+      }
+      h2 { font-size: 19px; }
+      .detail-list div { grid-template-columns: 1fr; gap: 1px; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+    }
+    @media print {
+      .wrap { width: 100%; }
+      .hero { padding: 35px 0; }
+      .body-grid { display: block; }
+      .toc { display: none; }
+      .policy-section { break-inside: avoid; }
+    }
+  </style>
+</head>
+<body id="top">
+  <a class="skip-link" href="#policy">본문으로 건너뛰기</a>
+  <div class="wrap">
+    <header class="site-header">
+      <a class="brand" href="#top" aria-label="NooKeep 맨 위로">NooKeep<span class="brand-mark" aria-hidden="true"></span></a>
+      <span class="tagline">MOMENTS INTO THINGS</span>
+    </header>
+
+    <main id="policy">
+      <div class="hero">
+        <p class="eyebrow">PRIVACY POLICY</p>
+        <h1>개인정보처리방침</h1>
+        <p class="intro">사진과 기록은 기기 내 앱 전용 저장소에 보관됩니다.<br>NooKeep은 이를 별도 서버에 저장하지 않습니다.</p>
+        <dl class="meta">
+          <div><dt>시행일</dt><dd>2026년 10월 3일</dd></div>
+          <div><dt>문의</dt><dd><a href="mailto:dev.utact@gmail.com">dev.utact@gmail.com</a></dd></div>
+        </dl>
+      </div>
+
+      <div class="body-grid">
+        <nav class="toc" aria-label="개인정보처리방침 목차">
+          <p class="toc-title">CONTENTS</p>
+          <ol>
+            <li><a href="#stored"><span>01</span>처리하는 정보</a></li>
+            <li><a href="#mlkit"><span>02</span>Google ML Kit 이용</a></li>
+            <li><a href="#permissions"><span>03</span>앱 권한</a></li>
+            <li><a href="#sharing"><span>04</span>외부 앱 공유</a></li>
+            <li><a href="#retention"><span>05</span>보관 및 삭제</a></li>
+            <li><a href="#changes"><span>06</span>문의 및 변경</a></li>
+          </ol>
+        </nav>
+
+        <div class="document">
+          <section class="policy-section" id="stored" aria-labelledby="stored-title">
+            <span class="number" aria-hidden="true">01</span>
+            <div>
+              <h2 id="stored-title">처리하는 정보</h2>
+              <p>사용자가 촬영하거나 선택한 사진은 피사체 분리에 사용합니다. 분리된 이미지, 상자의 날짜와 한 줄 기록, 이미지의 위치·크기·각도를 기기 내 앱 전용 저장소에 보관합니다. 알림 설정 등 앱 설정도 기기에 저장합니다.</p>
+            </div>
+          </section>
+
+          <section class="policy-section" id="mlkit" aria-labelledby="mlkit-title">
+            <span class="number" aria-hidden="true">02</span>
+            <div>
+              <h2 id="mlkit-title">Google ML Kit 이용</h2>
+              <p>사진의 피사체 분리는 Google ML Kit을 이용해 기기에서 처리하며, 사진 자체는 Google에 전송되지 않습니다.</p>
+              <p>ML Kit은 모델 다운로드 및 진단·사용 현황 분석 과정에서 기기·앱 정보, 설치 식별자 및 성능·오류 정보를 Google에 전송할 수 있습니다. 자세한 내용은 <a href="https://developers.google.com/ml-kit/android-data-disclosure">Google의 ML Kit 데이터 공개 문서</a>를 참고하시기 바랍니다.</p>
+            </div>
+          </section>
+
+          <section class="policy-section" id="permissions" aria-labelledby="permissions-title">
+            <span class="number" aria-hidden="true">03</span>
+            <div>
+              <h2 id="permissions-title">앱 권한</h2>
+              <dl class="detail-list">
+                <div><dt>카메라</dt><dd>사진 촬영에 사용합니다.</dd></div>
+                <div><dt>알림</dt><dd>사용자가 알림을 허용한 경우 기록 알림에 사용합니다.</dd></div>
+              </dl>
+            </div>
+          </section>
+
+          <section class="policy-section" id="sharing" aria-labelledby="sharing-title">
+            <span class="number" aria-hidden="true">04</span>
+            <div>
+              <h2 id="sharing-title">외부 앱 공유</h2>
+              <p>사용자가 이미지 내보내기를 선택하면 공유용 이미지가 선택한 앱에 전달됩니다. 전달된 정보에는 해당 앱의 개인정보처리방침이 적용됩니다.</p>
+            </div>
+          </section>
+
+          <section class="policy-section" id="retention" aria-labelledby="retention-title">
+            <span class="number" aria-hidden="true">05</span>
+            <div>
+              <h2 id="retention-title">보관 및 삭제</h2>
+              <p>상자에 담은 이미지는 앱에서 개별 삭제할 수 있습니다. 앱 데이터를 삭제하면 기기에 보관된 이미지와 기록도 삭제됩니다. 촬영 원본과 내보내기 이미지는 앱의 임시 저장 공간에 남을 수 있습니다.</p>
+              <p>Android 백업이 활성화된 경우 앱 데이터가 백업 계정에 저장·복원될 수 있습니다. 다른 앱에 공유한 이미지는 해당 앱에서 별도로 삭제해야 합니다.</p>
+            </div>
+          </section>
+
+          <section class="policy-section" id="changes" aria-labelledby="changes-title">
+            <span class="number" aria-hidden="true">06</span>
+            <div>
+              <h2 id="changes-title">문의 및 변경</h2>
+              <p>개인정보 관련 문의는 <a href="mailto:dev.utact@gmail.com">dev.utact@gmail.com</a>으로 보내실 수 있습니다. 개인정보처리방침이 변경되면 변경된 내용과 시행일을 이 페이지에 게시합니다.</p>
+            </div>
+          </section>
+        </div>
+      </div>
+    </main>
+
+    <footer class="site-footer">
+      <span>NooKeep · 개인정보처리방침</span>
+      <a href="#top">맨 위로 ↑</a>
+    </footer>
+  </div>
+</body>
+</html>
